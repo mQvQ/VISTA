@@ -71,9 +71,9 @@ python st_main.py -t --base configs/st_unet_mixcontrolv6.yaml --gpus 0,1,2,3, --
 
 ## 6. Sample
 ```bash
-python -m infer.sample_wo_celltype \
---split test --batch_size 96 --scale 1 --st_shape 1 256 \
---exp_name '10-10T17-05_st_unet_mixcontrolv6' \
+python -m infer.sample_all_cond \
+--split test --batch_size 96 --scale 4.5 --st_shape 1 256 \
+--exp_name [exp_name] \
 --ckpt_path '/path/to/last.ckpt' \
 --config_path '/path/to/configs/10-10T17-05-project.yaml' \
 --results_save_dir '/path/to/results' \
