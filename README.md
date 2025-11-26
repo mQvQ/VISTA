@@ -64,25 +64,23 @@ the repo includes
 2. latent embeddings extracted from the graph encoder
 3. latent diffusion ckpt
 
-## 5. Training
-
-
-## 6. Sampling
-'''bash
-
-
-'''
-
-
-## 7.Downstream
-
-
-## 8. 
-
-
-
-
+## 5. Train
+```bash
+python st_main.py -t --base configs/st_unet_mixcontrolv6.yaml --gpus 0,1,2,3, --logdir /path/to/VISTA/logs
 ```
+
+## 6. Sample
+```bash
+python -m infer.sample_wo_celltype \
+--split test --batch_size 96 --scale 1 --st_shape 1 256 \
+--exp_name '10-10T17-05_st_unet_mixcontrolv6' \
+--ckpt_path '/path/to/last.ckpt' \
+--config_path '/path/to/configs/10-10T17-05-project.yaml' \
+--results_save_dir '/path/to/results' \
+--emb_path 'multi_organ_gae_test_set_log1p_d256_embs_3+1.pkl' --device 'cuda:0'
+```
+
+
 
 
 
